@@ -16,11 +16,11 @@
                 position:absolute;
                 top:106px;
                 left: 97px;
-                height:36px;
+                width: 170px;
             }
             .logo-img-wrapper{
                 width:600px;
-                height:330px;
+                height:300px;
                 img{
                     width:100%;
                     object-fit: contain;
@@ -30,12 +30,38 @@
         .login-right{
             width:100%;
             background: #fff;
+            display:flex;
+            align-items:center;
+            justify-content:center;
             .inner-wrapper{
+                max-width: 450px;
+                width:100%;
+                display:flex;
+                flex-direction:column;
                 h2{
                     color: #213f7d;
+                    padding-bottom:10px;
+                    font-size:40px;
                 }
                 p{
                     color: #545f7d;
+                    margin-bottom: 60px;
+                    font-size:20px;
+                }
+                form{
+                    width:100%;
+                    .input-group{
+                        width:100%;
+                        margin-bottom:24px;
+                        input{
+                            width:100%;
+                            padding:1rem;
+                            font-size:14px;
+                        }
+                    }
+                    .f-pswd{
+                        font-size:12px;
+                    }
                 }
             }
         }
