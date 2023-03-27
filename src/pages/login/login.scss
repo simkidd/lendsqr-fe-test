@@ -14,11 +14,11 @@
             width:100%;
             .logo{
                 position:absolute;
-                top:106px;
+                top: 60px;
                 left: 97px;
-                width: 170px;
+                width: 150px;
             }
-            .logo-img-wrapper{
+            .left-img-wrapper{
                 width:600px;
                 height:300px;
                 img{
@@ -33,6 +33,7 @@
             display:flex;
             align-items:center;
             justify-content:center;
+            box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.03);
             .inner-wrapper{
                 max-width: 450px;
                 width:100%;
@@ -42,25 +43,72 @@
                     color: #213f7d;
                     padding-bottom:10px;
                     font-size:40px;
+                    font-weight: 800;
+                    font-family: 'Sen', sans-serif;
                 }
                 p{
                     color: #545f7d;
                     margin-bottom: 60px;
                     font-size:20px;
+                    font-weight: 400;
+                    font-family: 'Sen', sans-serif;
                 }
                 form{
                     width:100%;
+                    display:flex;
+                    flex-direction: column;
+                    gap: 24px;
                     .input-group{
                         width:100%;
-                        margin-bottom:24px;
+                        position: relative;
+                        box-sizing: border-box;
                         input{
+                            border-radius: 5px;
+                            border: 2px solid rgba(84,95,125,0.15);
                             width:100%;
                             padding:1rem;
                             font-size:14px;
+                            outline: none;
+                            background: #fff;
+                            &::placeholder{
+                                color: #545f7d;
+                                opacity: 0.6;
+                            }
+                            &:focus{
+                                border: 2px solid #39cdcc;
+                            }
+                        }
+                        .show-pswd{
+                            color:#39cdcc;
+                            position: absolute;
+                            top: 18px;
+                            right: 18px;
+                            font-size: 12px;
+                            text-transform: uppercase;
+                            cursor: pointer;
                         }
                     }
                     .f-pswd{
                         font-size:12px;
+                        text-transform: uppercase;
+                        color: #39cdcc;
+                        font-weight: 600;
+                        text-decoration: none;
+                    }
+                    .login-btn{
+                        background: #39cdcc;
+                        display: block;
+                        border: none;
+                        color: #fff;
+                        text-transform: uppercase;
+                        font-size: 14px;
+                        border-radius: 8px;
+                        padding: 15px 0;
+                        font-weight: 600;
+                        cursor: pointer;
+                        &:hover{
+                            background: linear-gradient(90deg, #39cdcc 5%, #0a9f9f 52%, #39cdcc 96%);
+                        }
                     }
                 }
             }
