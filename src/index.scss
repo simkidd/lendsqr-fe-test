@@ -1,12 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap');
 
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     font-family: 'Sen', sans-serif;
     // font-family: 'Work Sans', sans-serif;
     background: #eee;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #39cdcc;
+    border-radius: 2ex;
 }
