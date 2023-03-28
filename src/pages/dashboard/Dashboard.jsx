@@ -6,12 +6,8 @@ import Sidebar from "../../components/sidebar/Sidebar";
 
 const Dashboard = () => {
   return (
-    <div>
-      <Navbar />
-      <div>
-        <Sidebar />
-        <Outlet />
-      </div>
+    <div className="dashboard">
+      <h1>dashboard</h1>
     </div>
   );
 };

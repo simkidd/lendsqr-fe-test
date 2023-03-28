@@ -8,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const navigateToDashboard=()=>{
-    navigate('dashboard');
+    navigate('/');
   }
 
   return (
