@@ -25,6 +25,6 @@ const Wrapper = styled.div`
 `;
 
 const InnerWrapper = styled.div`
-  margin-top: 60px;
+  margin-top: 10rem;
   margin-left: 60px;
 `

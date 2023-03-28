@@ -1,4 +1,30 @@
 .sidebar{
     width: 283px;
     background: #fff;
+    height: 100vh;
+    
+    .wrapper{
+        padding-top: 8rem;
+        padding-left:30px;
+        padding-right:30px;
+        overflow-y: scroll;
+        width:100%;
+        height: 100%;
+        display:flex;
+        flex-direction:column;
+        gap:2rem;
+
+        div{
+            display:flex;
+            flex-direction: column;
+
+            h4{
+                text-transform: uppercase;
+                font-size: 12px;
+                font-family: 'Work Sans', sans-serif;
+                color: #545f7d;
+                font-weight:500;
+            }
+        }
+    }
 }
