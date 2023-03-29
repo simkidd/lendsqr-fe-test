@@ -1,16 +1,34 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
+import { Businesses, Customers, Settings } from "../../data/SideMenu";
 import "./sidebar.scss";
+import Briefcase from "../../assets/icons/briefcase 1.png";
+import Dropdown from "../../assets/icons/np_next_2236826_000000 2.png";
+import Home from "../../assets/icons/home 1.png";
+import Logout from "../../assets/icons/sign-out 1.svg";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const navigateToLogin = () => {
+    navigate("login");
+  };
+
   return (
     <div className="sidebar">
       <div className="wrapper">
         <div>
-          <p>Switch Organization</p>
-          <ul>
+          <p>
+            <img src={Briefcase} alt="" />
+            Switch Organization
+            <img src={Dropdown} alt="" />
+          </p>
+          <ul style={{marginTop: '1.5rem'}}>
             <li>
-              <NavLink to="/">Dashboard</NavLink>
+              <NavLink to="/">
+                <img src={Home} alt="" />
+                Dashboard
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -18,87 +36,61 @@ const Sidebar = () => {
         <div>
           <h4>customers</h4>
           <ul>
-            <li>
-              <NavLink to="users">Users</NavLink>
-            </li>
-            <li>
-              <NavLink>Guarantors</NavLink>
-            </li>
-            <li>
-              <NavLink>Loans</NavLink>
-            </li>
-            <li>
-              <NavLink>Decision Models</NavLink>
-            </li>
-            <li>
-              <NavLink>Savings</NavLink>
-            </li>
-            <li>
-              <NavLink>Loan Requests</NavLink>
-            </li>
-            <li>
-              <NavLink>Whitelist</NavLink>
-            </li>
-            <li>
-              <NavLink>Karma</NavLink>
-            </li>
+            {Customers.map((item) => {
+              return (
+                <li>
+                  <Link to={item.url}>
+                    <img src={item.icon} alt="" />
+                    {item.menu}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
         <div>
           <h4>businesses</h4>
           <ul>
-            <li>
-              <NavLink>Organization</NavLink>
-            </li>
-            <li>
-              <NavLink>Loan Products</NavLink>
-            </li>
-            <li>
-              <NavLink>Savings Products</NavLink>
-            </li>
-            <li>
-              <NavLink>Fees and Charges</NavLink>
-            </li>
-            <li>
-              <NavLink>Transactions</NavLink>
-            </li>
-            <li>
-              <NavLink>Services</NavLink>
-            </li>
-            <li>
-              <NavLink>Service Account</NavLink>
-            </li>
-            <li>
-              <NavLink>Settlements</NavLink>
-            </li>
-            <li>
-              <NavLink>Reports</NavLink>
-            </li>
+            {Businesses.map((item) => {
+              return (
+                <li>
+                  <Link to={item.url}>
+                    <img src={item.icon} alt="" />
+                    {item.menu}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
         <div>
           <h4>settings</h4>
           <ul>
-            <li>
-              <NavLink>Preferences</NavLink>
-            </li>
-            <li>
-              <NavLink>Fees and Pricing</NavLink>
-            </li>
-            <li>
-              <NavLink>Audit Logs</NavLink>
-            </li>
-            <li>
-              <NavLink>Systems Messages</NavLink>
-            </li>
+            {Settings.map((item) => {
+              return (
+                <li>
+                  <Link to={item.url}>
+                    <img src={item.icon} alt="" />
+                    {item.menu}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
         <div>
-          <Link>Logout</Link>
-          <span>v1.2.0</span>
+          <ul>
+            <li onClick={navigateToLogin}>
+              <Link>
+                <img src={Logout} alt="" />
+                Logout
+              </Link>
+            </li>
+          </ul>
+          <span className="version">v1.2.0</span>
         </div>
       </div>
     </div>
