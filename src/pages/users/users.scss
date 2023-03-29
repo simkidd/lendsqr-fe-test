@@ -1,32 +1,36 @@
-.users-wrapper{
+.users-wrapper {
     display: flex;
     flex-direction: column;
     font-family: 'Work Sans', sans-serif;
     width: 100%;
     box-sizing: border-box;
     gap: 40px;
-    
-    h1{
+
+    h1 {
         font-size: 24px;
         color: #213f7d;
         font-weight: 500;
     }
-    
-    .inner-wrapper{
+
+    .inner-wrapper {
         display: flex;
         flex-direction: column;
         gap: 40px;
         box-sizing: border-box;
 
-        .card-wrapper{
+        .card-wrapper {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 26px;
             width: 100%;
         }
 
-        .user-table-wrapper{
-
+        .user-table-wrapper {
+            background: #fff;
+            border-radius: 4px;
+            border: 1px solid rgba(33, 63, 125, 0.06);
+            box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+            padding: 30px;
         }
     }
 

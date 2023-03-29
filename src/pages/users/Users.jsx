@@ -1,5 +1,6 @@
 import React from "react";
 import UserCard from "../../components/userCard/UserCard";
+import UsersTable from "../../components/usersTable/UsersTable";
 import { UserCardData } from "../../data/UsersData";
 import "./users.scss";
 
@@ -14,7 +15,9 @@ const Users = () => {
             return <UserCard item={item} />;
           })}
         </div>
-        <div className="user-table-wrapper">table is here..</div>
+        <div className="user-table-wrapper">
+          <UsersTable />
+        </div>
       </div>
     </div>
   );

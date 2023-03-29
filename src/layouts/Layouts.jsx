@@ -26,5 +26,7 @@ const Wrapper = styled.div`
 
 const InnerWrapper = styled.div`
   width: calc(100% - 283px);
-  margin: 10rem 50px;
+  padding: 10rem 50px 0;
+  height: 100vh;
+  overflow-y: scroll;
 `

@@ -29,30 +29,37 @@ export const Customers = [
     },
     {
         menu: 'Guarantors',
+        url: '*',
         icon: Guarantor,
     },
     {
         menu: 'Loans',
+        url: '*',
         icon: Loan,
     },
     {
         menu: 'Decision Models',
+        url: '*',
         icon: Decision,
     },
     {
         menu: 'Savings',
+        url: '*',
         icon: Saving,
     },
     {
         menu: 'Loan Requests',
+        url: '*',
         icon: LoanReq,
     },
     {
         menu: 'Whitelist',
+        url: '*',
         icon: Whitelist,
     },
     {
         menu: 'Karma',
+        url: '*',
         icon: Karma ,
     },
 ]
@@ -60,38 +67,47 @@ export const Customers = [
 export const Businesses = [
     {
         menu: 'Organization',
+        url: '*',
         icon: Organization,
     },
     {
         menu: 'Loan Products',
+        url: '*',
         icon: LoanProd,
     },
     {
         menu: 'Savings Products',
+        url: '*',
         icon: SavingProd,
     },
     {
         menu: 'Fees and Charges',
+        url: '*',
         icon: Fees,
     },
     {
         menu: 'Transactions',
+        url: '*',
         icon: Transact,
     },
     {
         menu: 'Services',
+        url: '*',
         icon: Service,
     },
     {
         menu: 'Service Account',
+        url: '*',
         icon: ServiceAcct,
     },
     {
         menu: 'Settlements',
+        url: '*',
         icon: Settle,
     },
     {
         menu: 'Reports',
+        url: '*',
         icon: Report,
     },
 ]
@@ -99,18 +115,22 @@ export const Businesses = [
 export const Settings = [
     {
         menu: 'Preferences',
+        url: '*',
         icon: preference,
     },
     {
         menu: 'Fees and Pricing',
+        url: '*',
         icon: FeePrice,
     },
     {
         menu: 'Audit Logs',
+        url: '*',
         icon: Audit,
     },
     {
         menu: 'Systems Messages',
+        url: '*',
         icon: System,
     },
     

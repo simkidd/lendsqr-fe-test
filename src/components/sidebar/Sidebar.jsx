@@ -25,7 +25,7 @@ const Sidebar = () => {
           </p>
           <ul style={{marginTop: '1.5rem'}}>
             <li>
-              <NavLink to="/">
+              <NavLink to="/" activeClassName="active">
                 <img src={Home} alt="" />
                 Dashboard
               </NavLink>
@@ -39,10 +39,10 @@ const Sidebar = () => {
             {Customers.map((item) => {
               return (
                 <li>
-                  <Link to={item.url}>
+                  <NavLink to={item.url} activeClassName="active">
                     <img src={item.icon} alt="" />
                     {item.menu}
-                  </Link>
+                  </NavLink>
                 </li>
               );
             })}
@@ -55,10 +55,10 @@ const Sidebar = () => {
             {Businesses.map((item) => {
               return (
                 <li>
-                  <Link to={item.url}>
+                  <NavLink to={item.url} activeClassName="active">
                     <img src={item.icon} alt="" />
                     {item.menu}
-                  </Link>
+                  </NavLink>
                 </li>
               );
             })}
@@ -71,16 +71,16 @@ const Sidebar = () => {
             {Settings.map((item) => {
               return (
                 <li>
-                  <Link to={item.url}>
+                  <NavLink to={item.url}  activeClassName="active">
                     <img src={item.icon} alt="" />
                     {item.menu}
-                  </Link>
+                  </NavLink>
                 </li>
               );
             })}
           </ul>
         </div>
-
+            <hr />
         <div>
           <ul>
             <li onClick={navigateToLogin}>
