@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./navbar.scss";
 import Logo from "../../assets/images/Group.png";
 import ProfileImg from "../../assets/images/image 4.png";
@@ -8,6 +8,22 @@ import NotificationIcon from "../../assets/icons/np_notification_2425223_000000 
 import DropdownArrow from "../../assets/icons/dropdown.png";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef()
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleClickOutside=(e)=>{
+    if(dropdownRef.current && !dropdownRef.current.contains(e.target))
+    setIsOpen(false);
+  }
+
+  useEffect(()=>{
+    document.addEventListener('click', handleClickOutside)
+  },[])
+
   return (
     <div className="navbar">
       <div className="navbar-wrapper">
@@ -33,15 +49,17 @@ const Navbar = () => {
             <img src={ProfileImg} alt="" />
           </div>
           <div className="navbar-dropdown">
-            <p className="profile-name">
+            <button className="profile-name" onClick={toggleDropdown}>
               Adedeji
               <img src={DropdownArrow} alt="" />
-            </p>
-            <div className="dropdown-items">
-              <Link className="dropdown-link">item 1</Link>
-              <Link className="dropdown-link">item 2</Link>
-              <Link className="dropdown-link">item 3</Link>
-            </div>
+            </button>
+            {isOpen && (
+              <div className="dropdown-items">
+                <Link className="dropdown-link">item 1</Link>
+                <Link className="dropdown-link">item 2</Link>
+                <Link className="dropdown-link">item 3</Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
