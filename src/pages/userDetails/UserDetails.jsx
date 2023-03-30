@@ -12,7 +12,14 @@ const Api_Url =
 
 const UserDetails = () => {
   const { id } = useParams();
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(()=>{
+    const savedUser = localStorage.getItem('user');
+    if(savedUser){
+      return JSON.parse(savedUser)
+    }else{
+      return [];
+    }
+  });
   const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
@@ -28,6 +35,11 @@ const UserDetails = () => {
     };
     fetchUsers();
   }, [id]);
+
+  useEffect(()=>{
+    localStorage.setItem('user', JSON.stringify(user))
+  },[user])
+
 
   return (
     <div className="user-details">

@@ -32,6 +32,22 @@ table{
                     text-decoration: none;
 
                 }
+                .active{
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #39cd62;
+                    background: rgba(57, 205, 98,0.06);
+                    padding: 7px 14px;
+                    border-radius: 100px;
+                }
+                .inactive{
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #544f7d;
+                    background: rgba(84, 79, 125,0.06);
+                    padding: 7px 14px;
+                    border-radius: 100px;
+                }
             }
         }
 

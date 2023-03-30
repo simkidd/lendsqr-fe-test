@@ -1,9 +1,17 @@
 import React from "react";
 import "./pagination.scss";
+import PrevIcon from '../../assets/icons/prev.png';
+import NextIcon from '../../assets/icons/next.png';
 
 const Pagination = (props) => {
-  const { CurrentPage, totalPages, onPageChange } = props;
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  const { CurrentPage, totalPages, onPageChange, prev, next } = props;
+  // const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+  const pageNumbers = [];
+
+  for(let i = 1; i <= totalPages; i++){
+    pageNumbers.push(i)
+  }
 
   return (
     <div className="pagination">
@@ -15,26 +23,27 @@ const Pagination = (props) => {
 
       <div className="pages">
         <button
-          onClick={() => onPageChange(CurrentPage - 1)}
+          onClick={prev}
           disabled={CurrentPage === 1}
         >
-          prev
+          <img src={PrevIcon} alt="" />
         </button>
-        {pages.map((page) => {
+        {pageNumbers.map((number) => {
           return (
-            <button key={page}
-              onClick={() => onPageChange(page)}
-              disabled={CurrentPage === page}
+            <button key={number}
+              onClick={() => onPageChange(number)}
+              disabled={CurrentPage === number}
+              className={CurrentPage === number ? "active" : ""}
             >
-              {page}
+              {number}
             </button>
           );
         })}
         <button
-          onClick={() => onPageChange(CurrentPage + 1)}
+          onClick={next}
           disabled={CurrentPage === totalPages}
         >
-          next
+          <img src={NextIcon} alt="" />
         </button>
       </div>
     </div>

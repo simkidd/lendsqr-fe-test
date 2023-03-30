@@ -10,10 +10,18 @@ const Api_Url =
   "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users";
 
 const Users = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(()=>{
+    const savedUsers = localStorage.getItem('users');
+    if(savedUsers){
+      return JSON.parse(savedUsers)
+    }else{
+      return [];
+    }
+  });
 
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
+
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -30,24 +38,42 @@ const Users = () => {
     fetchUsers();
   }, []);
 
-  // useEffect(() => {
-  //   const addUser = (user) => {
-  //     const users = JSON.parse(localStorage.getItem("users")) || [];
-  //     users.push(user);
-  //     localStorage.setItem("users", JSON.stringify(users));
-  //   };
-  //   addUser();
-  // }, []);
+  useEffect(()=>{
+    localStorage.setItem('users', JSON.stringify(users))
+  },[users])
+
+  // check user status
+  const getStatus=(lastActiveDate)=>{
+    const now = new Date();
+    const lastActive = new Date(lastActiveDate);
+    const diffInMs = now - lastActive;
+    const diffInMins = Math.round(diffInMs / (1000 * 60));
+    if(diffInMins < 30){
+      return 'Active';
+    }else {
+      return 'Inactive';
+    
+    }
+  }
+  
+
 
   const totalPages = Math.ceil(users.length / itemsPerPage);
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
-    console.log(newPage)
   };
 
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const visibleUsers = users.slice(startIndex, startIndex + itemsPerPage);
+  const endIndex = startIndex + itemsPerPage;
+  const visibleUsers = users.slice(startIndex, endIndex);
+
+  const handlePrev = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+  const handleNext = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  };
 
   return (
     <div className="users-wrapper">
@@ -61,7 +87,7 @@ const Users = () => {
         </div>
         <div>
           <div className="user-table-wrapper">
-            <UsersTable users={visibleUsers} />
+            <UsersTable users={visibleUsers} status={getStatus} />
           </div>
 
           <div className="pages-container">
@@ -69,6 +95,8 @@ const Users = () => {
               currentPage={currentPage}
               totalPages={totalPages}
               onPageChange={handlePageChange}
+              prev={handlePrev}
+              next={handleNext}
             />
           </div>
         </div>

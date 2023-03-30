@@ -1,24 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./usersTable.scss";
 import FilterIcon from "../../assets/icons/filter-results-button.png";
 import { Link } from "react-router-dom";
 
 const UsersTable = (props) => {
-  const { users } = props;
+  const { users, status } = props;
 
-  
-  // useEffect(() => {
-  //   const addUser = (user) => {
-  //     const users = JSON.parse(localStorage.getItem("users")) || [];
-  //     users.push(user);
-  //     localStorage.setItem("users", JSON.stringify(users));
-  //   };
-  //   addUser();
-  // }, []);
-
-  // const getUserById = (id) =>{
-  //   const users = JSON.parse(localStorage.getItem('users')) || []
-  // }
+  // const formatDate =
 
   return (
     <>
@@ -71,7 +59,11 @@ const UsersTable = (props) => {
                     minute: "numeric",
                   }).format(Date.parse(user.createdAt))}
                 </td>
-                <td></td>
+                <td>
+                  <span 
+                  className={status(user.lastActiveDate) === 'Active' ? 'active' : 'inactive'}
+                  >{status(user.lastActiveDate)}</span>
+                </td>
               </tr>
             );
           })}

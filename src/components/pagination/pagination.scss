@@ -2,13 +2,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 3rem;
 
     .pages{
         display: flex;
         align-items: center;
+        gap: 2px;
         button{
             width: 24px;
             height: 24px;
+            border: none;
+            background: transparent;
+            color: rgba(84, 95, 125,0.6);
+            &:first-child,&:last-child{
+                border-radius: 4px;
+                background: rgba(33,63,125,0.1);
+            }
+            &.active{
+                // color: #545f7d;
+                color: red;
+            }
         }
     }
 }
