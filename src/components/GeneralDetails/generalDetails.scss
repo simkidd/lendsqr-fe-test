@@ -1,0 +1,50 @@
+.profile-information {
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    padding: 0 30px;
+
+    .info-title {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+        padding-bottom: 30px;
+        padding-top: 30px;
+
+        &:last-child {
+            border: none;
+        }
+
+        h3 {
+            padding-bottom: 30px;
+            font-weight: 500;
+            font-size: 16px;
+            color: #213f7d;
+        }
+
+        .inner {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 5rem;
+            row-gap: 30px;
+
+
+            div {
+                p {
+                    color: #213f7d;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    font-weight: 500;
+                    padding-bottom: 8px;
+                }
+
+                span {
+                    font-size: 16px;
+                    color: #545f7d;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

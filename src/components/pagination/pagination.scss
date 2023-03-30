@@ -1,0 +1,14 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .pages{
+        display: flex;
+        align-items: center;
+        button{
+            width: 24px;
+            height: 24px;
+        }
+    }
+}

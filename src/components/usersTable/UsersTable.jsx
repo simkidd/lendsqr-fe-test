@@ -1,27 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./usersTable.scss";
 import FilterIcon from "../../assets/icons/filter-results-button.png";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
-const Api_Url = "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users"
+const UsersTable = (props) => {
+  const { users } = props;
 
-const UsersTable = () => {
-    const [users, setUsers]= useState([])
+  
+  // useEffect(() => {
+  //   const addUser = (user) => {
+  //     const users = JSON.parse(localStorage.getItem("users")) || [];
+  //     users.push(user);
+  //     localStorage.setItem("users", JSON.stringify(users));
+  //   };
+  //   addUser();
+  // }, []);
 
-    useEffect(()=>{
-        const fetchUsers = async()=>{
-            try {
-                const res = await axios.get(Api_Url);
-                const users = await res.data;
-                setUsers(users)
-
-                console.log(users);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        fetchUsers()
-    },[])
+  // const getUserById = (id) =>{
+  //   const users = JSON.parse(localStorage.getItem('users')) || []
+  // }
 
   return (
     <>
@@ -29,51 +26,55 @@ const UsersTable = () => {
         <thead>
           <tr>
             <th>
-              organization 
+              organization
               <img src={FilterIcon} alt="" />
             </th>
             <th>
-              username 
+              username
               <img src={FilterIcon} alt="" />
             </th>
             <th>
-              email 
+              email
               <img src={FilterIcon} alt="" />
             </th>
             <th>
-              phone 
+              phone
               <img src={FilterIcon} alt="" />
             </th>
             <th>
-              date joined 
+              date joined
               <img src={FilterIcon} alt="" />
             </th>
             <th>
-              status 
+              status
               <img src={FilterIcon} alt="" />
             </th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user)=>{
-                    return(
-                        <tr key={user.id}>
-                            <td>{user.orgName}</td>
-                            <td>{user.userName}</td>
-                            <td>{user.email}</td>
-                            <td>{user.phoneNumber}</td>
-                            <td>{new Intl.DateTimeFormat(undefined,{
-                              year: 'numeric',
-                              month: 'short',
-                              day: '2-digit',
-                              hour:'numeric',
-                              minute:'numeric'
-                            }).format(Date.parse(user.createdAt))}</td>
-                            <td></td>
-                        </tr>
-                    )
-                })}
+          {users.map((user) => {
+            return (
+              <tr key={user.id}>
+                <td>{user.orgName}</td>
+                <td>
+                  <Link to={`/users/${user.id}`}>{user.userName}</Link>
+                </td>
+                <td>{user.email}</td>
+                <td>{user.phoneNumber}</td>
+                <td>
+                  {new Intl.DateTimeFormat(undefined, {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit",
+                    hour: "numeric",
+                    minute: "numeric",
+                  }).format(Date.parse(user.createdAt))}
+                </td>
+                <td></td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </>

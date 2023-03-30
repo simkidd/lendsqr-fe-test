@@ -52,11 +52,13 @@
                         font-family: 'Work Sans', sans-serif;
                         border-left: 3px solid transparent;
                         &.active{
+                            transition: all 0.2s ease-in-out;
                             color: #213f7d;
                             background: rgba(57, 205, 205, 0.1);
                             border-left: 3px solid #39cdcd;
                         }
                         &:hover{
+                            transition: all 0.2s ease-in-out;
                             background: rgba(57, 205, 205, 0.1);
                             color: #213f7d;
                             border-left: 3px solid #39cdcd;
