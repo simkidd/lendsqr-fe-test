@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const UsersTable = (props) => {
   const { users, status } = props;
 
-  // const formatDate =
 
   return (
     <>

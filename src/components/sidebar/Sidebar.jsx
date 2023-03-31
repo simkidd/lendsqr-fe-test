@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { Businesses, Customers, Settings } from "../../data/SideMenu";
 import "./sidebar.scss";
@@ -9,21 +9,32 @@ import Logout from "../../assets/icons/sign-out 1.svg";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const [isExpanded, setIsExpanded] = useState(false)
 
   const navigateToLogin = () => {
     navigate("login");
   };
 
+  const toggleAccordion = ()=>{
+    setIsExpanded(!isExpanded)
+  }
+
   return (
     <div className="sidebar">
       <div className="wrapper">
         <div>
-          <p>
+          <p onClick={toggleAccordion} className='expanded'>
             <img src={Briefcase} alt="" />
             Switch Organization
             <img src={Dropdown} alt="" />
           </p>
           <ul style={{marginTop: '1.5rem'}}>
+          {isExpanded && (
+            <li>
+              <span className="expanded-items">Organization 1</span>
+              <span className="expanded-items">Organization 2</span>
+            </li>
+          )}
             <li>
               <NavLink to="/" activeClassName="active">
                 <img src={Home} alt="" />
