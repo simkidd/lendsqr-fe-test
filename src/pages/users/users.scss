@@ -5,6 +5,9 @@
     width: 100%;
     box-sizing: border-box;
     gap: 40px;
+    @media screen and (max-width: 768px){
+        gap: 20px;
+    }
 
     h1 {
         font-size: 24px;
@@ -23,6 +26,10 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 26px;
             width: 100%;
+            @media screen and (max-width: 768px){
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
         }
 
         .user-table-wrapper {
@@ -31,6 +38,10 @@
             border: 1px solid rgba(33, 63, 125, 0.06);
             box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
             padding: 30px;
+            @media screen and (max-width: 768px){
+                padding: 30px 0;
+                overflow-x: scroll;
+            }
         }
         .pages-container{
             width: 100%;

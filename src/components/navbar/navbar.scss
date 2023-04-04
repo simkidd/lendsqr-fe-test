@@ -6,12 +6,25 @@
     position: fixed;
     top: 0;
     left:0;
+    @media screen and (max-width: 768px){
+        
+    }
     .navbar-wrapper{
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 18px 30px;
+        @media screen and (max-width: 768px){
+            padding: 12px 10px;
+        }
+        .sidebar-toggler{
+            margin-right: 0.5rem;
+            display: none;
+            @media screen and (max-width: 768px){
+                display: block;
+            }
+        }
         .logo{
             display: flex;
             align-items: center;
@@ -25,7 +38,10 @@
             display: flex;
             align-items: center;
             width: calc(100% - 300px);
-            margin-left: 100px;
+            margin-left: 60px;
+            @media screen and (max-width: 768px){
+                display: none;
+            }
             form{
                 width: 400px;
                 display: flex;
@@ -65,11 +81,18 @@
             align-items: center;
             gap: 0.5rem;
             margin-right: 2rem;
+            @media screen and (max-width: 768px){
+                margin: 0;
+                gap: 0.7rem;
+            }
             a{
                 font-size: 16px;
                 color: #213f7d;
                 text-decoration: none;
                 margin-right: 2.5rem;
+                @media screen and (max-width: 768px){
+                    margin: 0;
+                }
                 &:hover{
                     text-decoration:underline;
                 }
@@ -77,6 +100,9 @@
             .notification{
                 cursor:pointer;
                 margin-right: 1.5rem;
+                @media screen and (max-width: 768px){
+                    margin: 0;
+                }
             }
             .profile-img-wrapper{
                 border-radius:100%;

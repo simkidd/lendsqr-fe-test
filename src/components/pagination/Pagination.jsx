@@ -3,14 +3,29 @@ import "./pagination.scss";
 import PrevIcon from '../../assets/icons/prev.png';
 import NextIcon from '../../assets/icons/next.png';
 
-const Pagination = (props) => {
-  const { CurrentPage, totalPages, onPageChange, prev, next } = props;
-  // const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
-  const pageNumbers = [];
+const Pagination= ({ currentPage, totalPages, onPageChange, prev, next }) => {
 
-  for(let i = 1; i <= totalPages; i++){
-    pageNumbers.push(i)
+  const pageNumbers= [];
+
+  // Calculate the start and end of the range of page numbers to display
+  let startPage = Math.max(1, currentPage - 2);
+  let endPage = Math.min(totalPages, currentPage + 2);
+
+  // If there are more than 5 pages, display ellipses to hide some page numbers
+  const hasLeftEllipsis = startPage > 1;
+  const hasRightEllipsis = endPage < totalPages;
+  if (totalPages > 5) {
+    if (startPage <= 3) {
+      endPage = 5;
+    } else if (endPage >= totalPages - 2) {
+      startPage = totalPages - 4;
+    }
+  }
+
+  // Add the page numbers to display
+  for(let i = startPage; i <= endPage; i++) {
+    pageNumbers.push(i);
   }
 
   return (
@@ -22,28 +37,37 @@ const Pagination = (props) => {
       </div>
 
       <div className="pages">
-        <button
-          onClick={prev}
-          disabled={CurrentPage === 1}
-        >
-          <img src={PrevIcon} alt="" />
+        <button onClick={prev} disabled={currentPage === 1}>
+          <img src={PrevIcon} alt="Previous page" />
         </button>
-        {pageNumbers.map((number) => {
-          return (
-            <button key={number}
-              onClick={() => onPageChange(number)}
-              disabled={CurrentPage === number}
-              className={CurrentPage === number ? "active" : ""}
-            >
-              {number}
-            </button>
-          );
-        })}
-        <button
-          onClick={next}
-          disabled={CurrentPage === totalPages}
-        >
-          <img src={NextIcon} alt="" />
+
+        {hasLeftEllipsis && (
+          <>
+            <button onClick={() => onPageChange(1)}>1</button>
+            {startPage > 2 && <span className="ellipsis">...</span>}
+          </>
+        )}
+
+        {pageNumbers.map((pageNumber) => (
+          <button
+            key={pageNumber}
+            onClick={() => onPageChange(pageNumber)}
+            disabled={currentPage === pageNumber}
+            className={currentPage === pageNumber ? "active" : ""}
+          >
+            {pageNumber}
+          </button>
+        ))}
+
+        {hasRightEllipsis && (
+          <>
+            {endPage < totalPages - 2 && <span className="ellipsis">...</span>}
+            <button onClick={() => onPageChange(totalPages)}>{totalPages}</button>
+          </>
+        )}
+
+        <button onClick={next} disabled={currentPage === totalPages}>
+          <img src={NextIcon} alt="Next page" />
         </button>
       </div>
     </div>

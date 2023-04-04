@@ -7,7 +7,7 @@ import SearchIcon from "../../assets/icons/Vector.svg";
 import NotificationIcon from "../../assets/icons/np_notification_2425223_000000 1.png";
 import DropdownArrow from "../../assets/icons/dropdown.png";
 
-const Navbar = () => {
+const Navbar = ({handleSidebarShow}) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef()
 
@@ -15,18 +15,27 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleClickOutside=(e)=>{
-    if(dropdownRef.current && !dropdownRef.current.contains(e.target))
-    setIsOpen(false);
-  }
-
-  useEffect(()=>{
+  
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target))
+        setIsOpen(false);
+    };
     document.addEventListener('click', handleClickOutside)
-  },[])
+    
+    return ()=>{
+      document.addEventListener('click', handleClickOutside)
+
+    }
+  }, [])
 
   return (
-    <div className="navbar">
+    <div className="navbar" ref={dropdownRef}>
       <div className="navbar-wrapper">
+        <div className="sidebar-toggler">
+          <button onClick={handleSidebarShow}>SB</button>
+        </div>
+
         <div className="logo">
           <img src={Logo} alt="" />
         </div>

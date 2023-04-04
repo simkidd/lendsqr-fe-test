@@ -7,7 +7,7 @@ import Dropdown from "../../assets/icons/np_next_2236826_000000 2.png";
 import Home from "../../assets/icons/home 1.png";
 import Logout from "../../assets/icons/sign-out 1.svg";
 
-const Sidebar = () => {
+const Sidebar = ({showSidebar}) => {
   const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(false)
 
@@ -20,7 +20,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="sidebar">
+    <div className={showSidebar ? "sidebar show-sidebar" : "sidebar"}>
       <div className="wrapper">
         <div>
           <p onClick={toggleAccordion} className='expanded'>

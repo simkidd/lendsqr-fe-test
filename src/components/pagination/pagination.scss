@@ -9,19 +9,24 @@
         align-items: center;
         gap: 2px;
         button{
+            font-family: 'Work Sans', sans-serif;
             width: 24px;
             height: 24px;
             border: none;
+            font-size: 16px;
             background: transparent;
-            color: rgba(84, 95, 125,0.6);
+            color: rgba(84, 95, 125,0.4);
             &:first-child,&:last-child{
                 border-radius: 4px;
                 background: rgba(33,63,125,0.1);
             }
             &.active{
-                // color: #545f7d;
-                color: red;
+                background: rgba(33, 64, 125, 0.041);
+                color: #545f7d;
             }
+        }
+        .ellipsis{
+            color: rgba(84, 95, 125,0.4);
         }
     }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/login/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Users from "./pages/users/Users";
@@ -12,7 +12,8 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Layouts />}>
-          <Route index element={<Dashboard />} />
+          <Route path="/" element={<Navigate to="/dashboard" />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="users" element={<Users />} />
           <Route path="users/:id" element={<UserDetails />} />
         </Route>

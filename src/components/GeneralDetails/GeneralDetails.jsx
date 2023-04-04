@@ -40,7 +40,7 @@ const GeneralDetails = ({user}) => {
           </div>
           <div>
             <p>type of residence</p>
-            <span>Grace Effiom</span>
+            <span>Parent's Apartment</span>
           </div>
         </div>
       </div>

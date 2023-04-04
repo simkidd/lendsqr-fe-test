@@ -1,7 +1,17 @@
 .sidebar{
-    width: 283px;
+    width: 268px;
     background: #fff;
     height: 100vh;
+    transition: all 300ms ease-in-out;;
+    @media screen and (max-width: 768px){
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        &.show-sidebar{
+            width: 50%;
+            transition: all 300ms ease-in-out;
+        }
+    }
     
     .wrapper{
         padding-top: 8rem;
@@ -20,6 +30,9 @@
                 align-items: center;
                 padding: 0 0 0 20px;
                 color: #213f7d;
+                @media screen and (max-width: 768px){
+                    padding-left: 7px;
+                }
                 &.expanded{
                     cursor: pointer;
                 }
@@ -72,6 +85,10 @@
                         align-items: center;
                         font-family: 'Work Sans', sans-serif;
                         border-left: 3px solid transparent;
+                        @media screen and (max-width: 768px){
+                            padding-left: 15px;
+                            padding-right: 15px;
+                        }
                         &.active{
                             transition: all 0.2s ease-in-out;
                             color: #213f7d;
