@@ -5,7 +5,16 @@
         width: 100%;
         border-collapse: collapse;
         text-align: left;
+        @media screen and (max-width: 768px) {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
         thead {
+            @media screen and (max-width: 768px) {
+                // display: none;
+            }
             tr {
                 th {
                     padding-bottom: 30px;
@@ -26,10 +35,17 @@
         }
 
         tbody {
+            @media screen and (max-width: 768px) {
+                display: block;
+                width: 100%;
+            }
             tr {
                 border-bottom: 1px solid rgba(33, 63, 125, 0.1);
                 &:last-child {
                     border: none;
+                }
+                @media screen and (max-width: 768px) {
+                    display: block;
                 }
                 td {
                     font-size: 14px;
@@ -39,6 +55,10 @@
                     padding-left: 8px;
                     padding-right: 8px;
                     position: relative;
+                    @media screen and (max-width: 768px) {
+                        display: block;
+                        text-align: right;
+                    }
                     a {
                         color: #544f7d;
                         text-decoration: none;
