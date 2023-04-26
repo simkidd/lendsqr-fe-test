@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import SearchIcon from "../../assets/icons/Vector.svg";
 import NotificationIcon from "../../assets/icons/np_notification_2425223_000000 1.png";
 import DropdownArrow from "../../assets/icons/dropdown.png";
+import {FaBars} from 'react-icons/fa'
 
 const Navbar = ({handleSidebarShow}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,9 @@ const Navbar = ({handleSidebarShow}) => {
     <div className="navbar" ref={dropdownRef}>
       <div className="navbar-wrapper">
         <div className="sidebar-toggler">
-          <button onClick={handleSidebarShow}>SB</button>
+          <div onClick={handleSidebarShow} style={{cursor:"pointer"}}>
+          <FaBars size={24} />
+          </div>
         </div>
 
         <div className="logo">

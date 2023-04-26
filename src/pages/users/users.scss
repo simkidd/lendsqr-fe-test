@@ -38,6 +38,8 @@
             border: 1px solid rgba(33, 63, 125, 0.06);
             box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
             padding: 30px;
+            width: 100%;
+            overflow-x: scroll;
             @media screen and (max-width: 768px){
                 padding: 30px 0;
                 overflow-x: scroll;

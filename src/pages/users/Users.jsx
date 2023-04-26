@@ -114,7 +114,7 @@ const Users = () => {
             return <UserCard item={item} key={i} />;
           })}
         </div>
-        <div>
+        <>
           <div className="user-table-wrapper">
             <UsersTable users={visibleUsers} status={getStatus} setIsFilterOpen={setIsFilterOpen} isFilterOpen={isFilterOpen} filterUsers={filterUsers} setFilteredUsers={setFilteredUsers}  />
           </div>
@@ -128,7 +128,7 @@ const Users = () => {
               next={handleNext}
             />
           </div>
-        </div>
+        </>
       </div>
     </div>
   );
