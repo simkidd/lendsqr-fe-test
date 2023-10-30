@@ -3,13 +3,10 @@
     margin-bottom: 8rem;
 
     .back {
-        text-decoration: none;
-        font-size: 16px;
-        color: #545f7d;
         margin-bottom: 30px;
-        width: fit-content;
-        display: block;
-        .btn-back{
+        
+        .btn-back {
+            color: #545f7d;
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -23,7 +20,8 @@
         align-items: center;
         margin-bottom: 40px;
         justify-content: space-between;
-        @media screen and (max-width: 768px){
+
+        @media screen and (max-width: 768px) {
             flex-direction: column;
             align-items: start;
             gap: 1rem;
@@ -78,7 +76,7 @@
 
                 width: 100%;
                 box-sizing: border-box;
-                
+
 
                 .profile {
                     display: flex;
@@ -87,7 +85,8 @@
                     padding-bottom: 40px;
                     padding-left: 30px;
                     width: 100%;
-                    @media screen and (max-width: 768px){
+
+                    @media screen and (max-width: 768px) {
                         padding: 5px;
                         padding-top: 10px;
                         display: grid;
@@ -115,7 +114,8 @@
                         padding-right: 30px;
                         border-right: 1px solid rgba(33, 63, 125, 0.1);
                         height: 80px;
-                        @media screen and (max-width: 768px){
+
+                        @media screen and (max-width: 768px) {
                             padding: 20px;
                         }
 
@@ -141,7 +141,8 @@
                         border-right: 1px solid rgba(33, 63, 125, 0.1);
                         height: 80px;
                         justify-content: center;
-                        @media screen and (max-width: 768px){
+
+                        @media screen and (max-width: 768px) {
                             padding: 20px;
                         }
 
@@ -173,35 +174,43 @@
 
                 .profile-tab-nav {
                     list-style: none;
-                    display: flex; 
+                    display: flex;
                     width: 100%;
                     justify-content: space-evenly;
-                    @media screen and (max-width: 768px){
-                        overflow-x: scroll;
+
+                    @media screen and (max-width: 768px) {
+                        overflow-x: auto;
                         justify-content: start;
                         margin-top: 1rem;
+
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
                     }
 
                     li {
-                        
-                        .tab-btn{
+
+                        .tab-btn {
                             padding: 0 20px 10px;
                             text-decoration: none;
                             font-weight: 400;
                             font-size: 16px;
                             font-family: 'Work Sans', sans-serif;
                             color: rgba(0, 0, 0, 0.8);
-                            border:none;
+                            border: none;
                             background: transparent;
                             border-bottom: 2px solid transparent;
-                            @media screen and (max-width: 768px){
+
+                            @media screen and (max-width: 768px) {
                                 width: max-content;
                             }
-                            &:hover{
+
+                            &:hover {
                                 border-bottom: 2px solid #39cdcc;
                                 color: #39cdcc;
                             }
-                            &.active{
+
+                            &.active {
                                 border-bottom: 2px solid #39cdcc;
                                 color: #39cdcc;
                             }
@@ -210,7 +219,7 @@
                 }
             }
 
-            
+
         }
     }
 
